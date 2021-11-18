@@ -11,7 +11,7 @@ A Python script that transcript Arcaea chart file (.aff file) into AutoJS touchs
 # Prerequisites
 - AutoJS Pro v8 (This is a paid application!)
 - Rooted Android device
-- the .AFF file for the Arcaea chart
+- the .aff file of the Arcaea chart
 
 # How to use
 1. Edit the Argument List based on the situations of your Android device.

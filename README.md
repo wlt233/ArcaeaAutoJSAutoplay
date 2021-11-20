@@ -20,5 +20,5 @@ A Python script that transcript Arcaea chart file (.aff file) into AutoJS touchs
 2. Put an .aff file into the same folder as the python script, and rename the file to 0.aff.
 3. Run the python script from the same folder.
 4. Open the corresponding Arcaea chart in the game. After the game loads into the gameplay scene, press the pause button and leave it there.
-5. Run the generated generated .js script remotely from your computer on your Android Device. About how to perform remote debugging, please refer to the AutoJS document.
-6. The Program will automatically control the device to restart and play the chart. You might need to go back to step 1 and edit the Input Offset to make the program play more precisely.
+5. Run the generated JavaScript script remotely from your computer on your Android Device. About how to perform remote debugging, please refer to the AutoJS document.
+6. The program will automatically control the device to restart and play the chart. You might need to go back to step 1 and edit the Input Offset to make the program play more precisely.

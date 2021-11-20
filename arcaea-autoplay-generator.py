@@ -10,14 +10,14 @@
 # slot2: arc2 (green arc) 
 # slot3: arctap0 (arctap 0)
 # slot4: arctap1 (arctap 1)
-# slot5: (track 1 tap&hold)
-# slot6: (track 2 tap&hold)
-# slot7: (track 3 tap&hold)
-# slot8: (track 4 tap&hold)
+# slot5: (track 1 tap & hold)
+# slot6: (track 2 tap & hold)
+# slot7: (track 3 tap & hold)
+# slot8: (track 4 tap & hold)
 # slot9: reserved
 
 # The advantage of this design is that the each color of arc have its own specific slot.
-# Therefore, so after the first press, the program only need to update the coordinates, and there is no need to release the input, thus avoiding combo break.
+# Therefore, after the first press, the program only need to update the coordinates, and there is no need to release the input, thus avoiding combo break.
 
 # The slot variable is a list of events including touch down, touch up and update coordinates.
 
@@ -135,7 +135,7 @@ def generateArcTouchPoints(arcNumber, startX, endX, startY, endY, startTime, end
 
 
 # Get coordinates for ArcTap
-# arcTapList: List of ArcTaps on the current Arc
+# arcTapList: list of ArcTaps on the current Arc
 def generateArcTapTouchPoints(startX, endX, startY, endY, startTime, endTime, arcTapList):
 
     timePeriod = float(startTime - endTime)

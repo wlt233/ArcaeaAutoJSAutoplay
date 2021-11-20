@@ -2,6 +2,42 @@
 
 # Distributed with Apache License 2.0
 
+# Idea: in Arcaea, only one arc note of the same color will appear at the same time.
+# So, assigning each color to a specific slot can avoid the trouble of switching between slots when pressing multiple arcs.
+
+# slot0: arc0 (blue arc) + status button (restart, pause)
+# slot1: arc1 (red arc)
+# slot2: arc2 (green arc) 
+# slot3: arctap0 (arctap 0)
+# slot4: arctap1 (arctap 1)
+# slot5: (track 1 tap&hold)
+# slot6: (track 2 tap&hold)
+# slot7: (track 3 tap&hold)
+# slot8: (track 4 tap&hold)
+# slot9: reserved
+
+# The advantage of this design is that the each color of arc have its own specific slot.
+# Therefore, so after the first press, the program only need to update the coordinates, and there is no need to release the input, thus avoiding combo break.
+
+# The slot variable is a list of events including touch down, touch up and update coordinates.
+
+# Slot arguments：[timestamp(miliseconds), slot id, event type, X coodinate, Y coodinate]
+# Event type arguments：0 (press), 1 (release), 2 (update coodinate)
+# If the event type is release，the X, Y coodinate argument will be ignored (however, this program will still generate these two arguments to avoid compatibility issues).
+
+# Events in the slot are listed from smallest to largest timestamp
+
+# Slot 9 is reserved for furthur developments
+
+# In the AutoJS
+
+# In AutoJS RootAutomator, Slot ID does not refer to the local ID of 10-point touch (taking values 0-9), but to the global touch event ID of the whole device (taking values 0-65535).
+# The Slot ID within this software was intended to achieve the former at first. This was not expected at the beginning of the software design, which in turn led to an architectural error in the entire software.
+# This architectural problem will cause the touch points of each slot to be disturbed and cause the script to fail to hit the arc note.
+# Therefore. The software needs to be refactored and deprecate the AutoJS RootAutomator in favor of using other means to infuse the Android input event state machine.
+# This AutoJS-independent project is already being developed and will be uploaded in a separate repository when the software is almost complete.
+
+
 import math
 
 '''
@@ -54,10 +90,10 @@ def getArcTaps(str):
 
 # Generate the touchscreen coodinates for the moving Arcs
 # arcNumber The ID of the arc (0: Blue, 1: Red, 2: Green)
-# startX: Height at which the arc starts (Arc Argument, -0.50~1.50)
-# startY: Width  at which the arc starts (Arc Argument, 0.00~1.00)
-# endX: Height at which the arc ends (Arc Argument, 0.00~1.00)
-# endY: Width  at which the arc ends (Arc Argument, 0.00~1.00)
+# startX: Height at which the arc starts (Arc Argument, taking values -0.50~1.50)
+# startY: Width  at which the arc starts (Arc Argument, taking values 0.00~1.00)
+# endX: Height at which the arc ends (Arc Argument, taking values 0.00~1.00)
+# endY: Width  at which the arc ends (Arc Argument, taking values 0.00~1.00)
 def generateArcTouchPoints(arcNumber, startX, endX, startY, endY, startTime, endTime, arcType):
     timePeriod = float(endTime - startTime)
     pointCount = 0

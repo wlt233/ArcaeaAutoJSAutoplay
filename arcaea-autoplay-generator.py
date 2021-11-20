@@ -25,12 +25,11 @@
 # Event type arguments：0 (press), 1 (release), 2 (update coodinate)
 # If the event type is release，the X, Y coodinate argument will be ignored (however, this program will still generate these two arguments to avoid compatibility issues).
 
-# Events in the slot are listed from smallest to largest timestamp
+# Events in the slot are listed from smallest to largest timestamp.
 
-# Slot 9 is reserved for furthur developments
+# Slot 9 is reserved for furthur developments.
 
-# In the AutoJS
-
+# This program relies on the RootAutomator module of AutoJS to perform simulated screen input.
 # In AutoJS RootAutomator, Slot ID does not refer to the local ID of 10-point touch (taking values 0-9), but to the global touch event ID of the whole device (taking values 0-65535).
 # The Slot ID within this software was intended to achieve the former at first. This was not expected at the beginning of the software design, which in turn led to an architectural error in the entire software.
 # This architectural problem will cause the touch points of each slot to be disturbed and cause the script to fail to hit the arc note.

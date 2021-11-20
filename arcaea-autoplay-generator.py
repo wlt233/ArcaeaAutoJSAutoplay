@@ -54,16 +54,14 @@ def getArcTaps(str):
 
 # Generate the touchscreen coodinates for the moving Arcs
 # arcNumber The ID of the arc (0: Blue, 1: Red, 2: Green)
-# startX: Height at which the arc starts (Arc Argument, 取值-0.50~1.50)
-# startY: Width  at which the arc starts (Arc Argument, 取值0.00~1.00)
-# endX: Height at which the arc ends (Arc Argument, 取值0.00~1.00)
-# endY: Width  at which the arc ends (Arc Argument, 取值0.00~1.00)
+# startX: Height at which the arc starts (Arc Argument, -0.50~1.50)
+# startY: Width  at which the arc starts (Arc Argument, 0.00~1.00)
+# endX: Height at which the arc ends (Arc Argument, 0.00~1.00)
+# endY: Width  at which the arc ends (Arc Argument, 0.00~1.00)
 def generateArcTouchPoints(arcNumber, startX, endX, startY, endY, startTime, endTime, arcType):
     timePeriod = float(endTime - startTime)
     pointCount = 0
     slotId = arcNumber
-    if startTime > 88190:
-        slotId += 10
     while startTime < endTime:
         startTime += refreshRate
         pointCount += 1
@@ -101,8 +99,8 @@ def generateArcTouchPoints(arcNumber, startX, endX, startY, endY, startTime, end
             slot.append([int(startTime+offset-10), slotId, 2, int(currentX), int(currentY)])
 
 
-# 获取ArcTap的坐标
-# arcTapList: 当前Arc上的ArcTap列表
+# Get coordinates for ArcTap
+# arcTapList: List of ArcTaps on the current Arc
 def generateArcTapTouchPoints(startX, endX, startY, endY, startTime, endTime, arcTapList):
 
     timePeriod = float(startTime - endTime)

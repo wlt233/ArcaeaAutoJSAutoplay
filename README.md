@@ -11,6 +11,8 @@ A Python script that transcript Arcaea chart file (.aff file) into AutoJS touchs
 7. This program is not affiliated with Lowiro or any other commercial organizations, and the Arcaea trademark is owned by Lowiro.
 
 # Prerequisites
+- Any version of Python 3 (programmed and tested with Python 3.9.1)
+- A computer with compatible python, Visual Studio Code with AutoJS plugin is not required but highly recommended
 - AutoJS Pro v8 (This is a paid application!)
 - Rooted Android device (Qualcomm Snapdragon 845 or other SoC with equivalent performance is highly recommended)
 - the .aff file of the Arcaea chart
@@ -20,5 +22,5 @@ A Python script that transcript Arcaea chart file (.aff file) into AutoJS touchs
 2. Put an .aff file into the same folder as the python script, and rename the file to 0.aff.
 3. Run the python script from the same folder.
 4. Open the corresponding Arcaea chart in the game. After the game loads into the gameplay scene, press the pause button and leave it there.
-5. Run the generated JavaScript script remotely from your computer on your Android Device. About how to perform remote debugging, please refer to the AutoJS document.
+5. Run the generated JavaScript script remotely from your computer on your Android Device. About how to perform remote debugging, please refer to the AutoJS document. (Theoretically, you can run the script locally on your Android device, but this doesn't work with my device, so I'm not sure...)
 6. The program will automatically control the device to restart and play the chart. You might need to go back to step 1 and edit the Input Offset to make the program play more precisely.
